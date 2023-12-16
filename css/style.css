@@ -1,0 +1,875 @@
+
+/*------- Global -------*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+body {
+    font-family:"Open Sans", system-ui,-apple-system , "Segoe UI", 'Roboto','Roboto Condensed',
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color:#212529;
+    overflow-x: hidden ;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a,span {
+    display: inline-block;
+}
+
+picture,img {
+    display: block;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Inter", sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+.night-icon i {
+    cursor: pointer;
+    font-size: 25px;
+}
+
+
+.btn {
+    border: 2px solid #ffffff00;
+    border-radius: 16px;
+    background-color: #ffffff00;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 450ms,color 450ms;
+}
+
+.btn:hover {
+    background-color:hsl(0,84%,0.462);
+    color: #fff;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #fff;
+    border-left: 2px solid #ffffff;
+    box-shadow: 0px 0px 21px 0px #0003 inset;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000;
+    box-shadow: 0px 0px 10px 0px #eeeeee8c inset;
+    border-radius: 30px;
+}
+
+.container {
+    width: 100%;
+    padding: 40px 5px;
+    margin-inline: auto;
+    margin-top: 0 ;
+    margin-bottom:0;
+}
+
+.bg-section {
+    background-color:#eee;
+}
+
+.btn-main {
+    background-color: hsl(0,84%,44%);
+    padding: 6px 18px;
+}
+
+.titles {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.titles h2 {
+    color:#7f7f90;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.titles p {
+    font-size: 50px;
+    font-family:  "Amatic SC", sans-serif;
+}
+
+.titles span {
+    color:hsl(0,84%,44%);
+}
+
+/*-------Navbar-------*/
+nav {
+    background-color:#fff;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    box-shadow: 0px 0px 14px 0px #0000001b;
+}
+
+nav .container {
+    padding: 25px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 30px;
+    font-family:"Open Sans", system-ui, "Segoe UI",'Roboto',
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.logo::after {
+    content: ".";
+    color:hsl(0,84%,44%);
+}
+
+nav .nav-middle {
+    display: flex;
+    font-size: 17px;
+    color:#7f7f90;
+    font-weight: 600;
+}
+
+nav .nav-middle .close-icon {
+    display: none;
+    width: fit-content;
+    align-self: flex-end;
+    font-size: 22px;
+}
+
+
+
+nav .nav-middle a {
+    padding: 0px 15px;
+    position: relative;
+    transition: color 450ms;
+}
+
+nav .nav-middle a::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 15px;
+    width: 0px;
+    height: 2px;
+    background-color:hsl(0,84%,44%);
+    transition: width 450ms;
+}
+
+nav .nav-middle a:hover {
+    color: #000;
+}
+
+nav .nav-middle a:hover::before,
+nav a.active::before {
+    width: calc(100% - (15px * 2));
+}
+
+nav .nav-menu {
+    cursor: pointer;
+    font-size: 25px;
+    display: none;
+}
+
+nav:has(.nav-middle:target) {
+    height: 100%;
+    background-color: hsl(0,0%,100%,0.7);
+}
+
+nav .nav-middle:target {
+    transform: translateX(0);
+}
+
+/*----- Header -----*/
+header {
+    display: flex;
+    align-items: center;
+}
+
+header .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .container>* {
+    width: 40%;
+}
+
+.home-content h2 {
+    color:#37373f;
+    font-family: "Amatic SC", sans-serif;
+    font-size: 65px;
+}
+
+.home-content p {
+    margin-block: 20px;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #4f4f5a;
+}
+
+.home-content .tow-button {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+header .btn-main {
+    padding: 10px 25px; 
+    border-radius: 0px 100px 100px; 
+}
+
+.home-content .btn-video {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    transition: color 450ms;
+}
+
+.btn-video:hover {
+    color:hsl(0,84%,44%);
+}
+
+.btn-video .icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-image: linear-gradient(to right,hsl(0,84%,44%) 0 50%, #ffffff00 50% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    margin-right: 5px;
+    position: relative;
+}
+
+.btn-video .icon::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color:#fff;
+    width: 40px;
+    height: 40px;
+    border-radius: inherit;
+}
+
+.btn-video .icon i {
+    z-index: 1;
+}
+
+header picture img {
+    width: 100%;
+    box-shadow:4px 4px 9px #000a;
+    border-radius: 50%;
+    margin-top: 100px;
+}
+
+header picture img:hover {
+    animation: shake 1s infinite;
+}
+@keyframes shake {
+10%,90% {
+    transform: translate3d(-1px, 0, 0);
+}
+
+20%,80% {
+    transform: translate3d(2px, 0, 0);
+}
+
+30%,50%,70% {
+    transform: translate3d(-4px, 0, 0);
+}
+
+40%,60% {
+    transform: translate3d(4px, 0, 0);
+}
+
+}
+/*----- Chefs -----*/
+.chefs-cards {
+    padding-block: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.chefs-cards .cards {
+    width: 30%;
+    background-color:#fff;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: scale 450ms;
+    box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.chefs-cards .cards:hover {
+    scale: 1.07;
+}
+
+.chefs-cards .cards picture {
+    position: relative;
+}
+
+.chefs-cards .cards img {
+    width: 100%;
+}
+
+.chefs-cards .cards picture:after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    background-image: url("../img/team-shape.svg");
+    background-repeat: repeat-x;
+    width: 100%;
+    height:65px;
+}
+.chefs-cards .cards .card-content {
+    margin-bottom: 30px;
+}
+.chefs-cards .cards span {
+    font-size: 14px;
+    color:#7f7f90;
+    margin-block: 5px 10px;
+}
+
+.chefs-cards .cards p {
+    font-size: 15px;
+    font-style: italic;
+    color:#7f7f90;
+}
+
+.chefs-cards .chefs-social {
+    background-color: #ffffff4d;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    right: -50px;
+    transition: right 200ms;
+}
+
+.chefs-cards .cards:hover .chefs-social {
+    right: 10px;
+    transition: right 450ms 450ms;
+}
+
+.chefs-cards .chefs-social i {
+    font-size: 18px;
+    padding: 10px 5px;
+    color: #37373f66;
+    transition: color 450ms;
+}
+
+.chefs-cards .chefs-social i:hover {
+    color: #37373fe6;
+}
+
+/*----- Gallery -----*/
+.gallery-photos {
+    height: 1165px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery-photos picture {
+    width: 30%;
+    border: 4px solid #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-photos picture img {
+    width: 100%;
+    transition: scale 450ms;
+}
+
+.gallery-photos picture .layer {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background-color: #000000d2;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: top 450ms;
+}
+
+.gallery-photos picture .layer p {
+    color: #c2c2c2;
+    text-align: center;
+}
+
+.gallery-photos picture:hover img {
+    scale: 1.1;
+}
+
+.gallery-photos picture:hover .layer {
+    top: 0;
+}
+
+/*------ Contact ------*/
+
+.contact iframe {
+    width: 100%;
+    height: 230px;
+}
+
+.contact .details {
+    margin-block: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact .details>div {
+    width: 48%;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    background-color: hsl(0,0%,calc(100% - 4%));
+}
+
+.contact .details>div h3 {
+    color: #7d7d7d;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.contact .details .icon {
+    min-width: 50px;
+    min-height: 50px;
+    background-color:hsl(0,84%,44%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.contact .details .icon i {
+    color:#fff;
+    font-size: 18px;
+}
+
+.contact form {
+    background-color:#fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 20px #00000014;
+    gap: 15px;
+}
+
+.contact form>* {
+    width: 100%;
+}
+
+.contact form input,.contact form textarea {
+    padding: 15px 15px;
+    border: 2px solid rgba(55, 55, 63, 0.26);
+    color: #212529;
+}
+.input-2 {
+    margin-left: 7px;
+}
+
+.contact form .input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact .input-group input {
+    width: 49% ;
+}
+
+.contact form textarea {
+    min-height: 150px;
+    max-height: 300px;
+    resize: vertical;
+}
+
+.contact form button {
+    padding: 12px 35px;
+    margin-top: 25px;
+    width: fit-content;
+    border-radius: 30px;
+}
+
+/*---- Footer ----*/
+footer {
+    background-image: linear-gradient(#0009, #0009), url(../img/textured-metal-background.jpg);
+    color: #fff;
+    background-size: contain;
+}
+
+footer .container {
+    gap: 13px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer .container .about, footer .container .contact-details {
+    width: 23.5%;
+}
+
+footer .container .subscription {
+    width: 49%;
+}
+
+footer .about div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .about p {
+    margin-block: 10px;
+}
+
+footer .about img {
+    width: 40px;
+    height: 40px;
+}
+
+footer .about h3 {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #ddd6;
+    margin-bottom: 10px;
+}
+
+footer .about .social-links {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer .about .social-links i {
+    font-size:24px;
+}
+
+footer .subscription-box p {
+    margin-block: 10px;
+}
+
+footer .sunscription-group {
+    margin-block: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+footer .sunscription-group input {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+footer .sunscription-group input:focus-visible {
+    outline: none;
+}
+
+footer .sunscription-group button {
+    border-radius: 0;
+    padding: 10px;
+    min-width: 110px;
+}
+
+footer .footer-links ul {
+    gap: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+}
+
+footer .footer-links ul li {
+    width: 40%;
+    padding: 5px;
+    position: relative;
+    transition: transform 450ms,background-color 450ms;
+}
+
+footer .footer-links ul li:hover {
+    transform: translateX(13px);
+    background-color: #222;
+}
+
+footer .footer-links ul li i {
+    margin-right: 5px;
+}
+
+footer .contact-details h3 {
+    margin-bottom: 10px;
+}
+
+footer .contact-details ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+footer .contact-details ul li i {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:hsl(0,84%,44%);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+
+/*---- Media ----*/
+@media screen and (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+
+    nav .nav-middle {
+        transform: translateX(100%);
+        position: absolute;
+        z-index: 999;
+        width: 350px;
+        height: 100%;
+        background-color: #fff;
+        border-left: 2px solid #f1f1f1;
+        right: 0;
+        top: 0;
+        flex-direction: column;
+        transition: transform 450ms;
+    }
+
+    nav .nav-middle .close-icon {
+        display: block;
+        padding: 10px 15px 5px;
+    }
+
+    nav .nav-middle a {
+        width: 100%;
+        padding: 0px 10px;
+    }
+
+    nav .nav-middle a::before {
+        bottom: 2px;
+    }
+
+    nav .nav-menu {
+        display: block;
+    }
+
+    nav .night-icon {
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+    .gallery-photos {
+        height: 845px;
+    }
+
+    footer .container .about , footer .container .contact-details {
+        width: 48%;
+        order: 1;
+    }
+
+    footer .container .subscription {
+        width: 100%;
+        order: 2;
+    }
+    nav .nav-middle a {
+        width: 21%;
+        padding: 9px 15px;
+    }
+    .contact .input-group .input-2{
+        margin: 0;
+    }
+
+} 
+
+@media screen and (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+    .contact .input-group input {
+        width: 100%;
+    }
+    .gallery-photos {
+        height: 1405px;
+    }
+
+    .gallery-photos picture {
+        width: 48%;
+    }
+
+    .gallery .pizza {
+        order: 1;
+    }
+
+    .gallery .chicken {
+        order: 6;
+    }
+
+    .gallery .egg {
+        order: 4;
+    }
+
+    .gallery .kofta {
+        order: 7;
+    }
+
+    .gallery .burger {
+        order: 2;
+    }
+
+    .gallery .pizza-2 {
+        order: 3;
+    }
+
+    .gallery .steak {
+        order: 5;
+    }
+
+    header .container {
+        flex-direction: column-reverse;
+        gap: 50px;
+    }
+
+    header .container>* {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header picture img {
+        width: 100%;
+    }
+
+    header .btn-main {
+        border-radius: 100vh;
+    }
+    .chefs-cards .card {
+        width: 47%;
+    }
+    .chefs-cards .cards {
+        width: 47%;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+
+    footer .container .about, footer .container .contact-details, footer .container .subscription {
+        width: 100%;
+        order: 0;
+    }
+
+    .chefs-cards .card {
+        width: 100%;
+    }
+
+    .gallery-photos {
+        height: auto;
+    }
+
+    .gallery-photos picture {
+        width: 100%;
+    }
+
+    .contact .details>div {
+        width: 100%;
+    }
+
+    .chefs-cards .cards {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        padding-inline: 15px;
+    }
+    footer .sunscription-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    header picture img {
+        width: 100%;
+    }
+    .chefs-cards .cards {
+        width: 100%;
+        margin-left: 10px;
+    }
+} 
+
+@media screen and (max-width: 400px) {
+    .home-content .tow-button {
+        flex-direction: column;
+        gap: 20px;
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
